@@ -1,0 +1,41 @@
+### Development Log Summary - Tauri Application with SQLite
+
+#### Objective:
+Integrate SQLite database functionality into a Tauri application, with a focus on setting up and managing the database within a Next.js-Tauri environment.
+
+#### Tasks Completed:
+
+1. **Initial Project Setup**:
+   - Initialized Tauri from Getting Started
+   - Initialized the project frontend using Next.js.
+  
+2. **App Idea**:
+   - Came up with idea for app based on how I would use it to store information I get from Canvas
+  
+3. **Generated Initial UI with Vercel's v0**
+   https://v0.dev/r/jdeq5tPjDqz
+   - Night theme still saved on there...
+
+4. **Integration of `tauri-plugin-sql` with Tauri Application**:
+   - Discussed the non-necessity of having SQLite platform installed locally as SQLite is embedded in the application.
+
+5. **Creation and Testing of a Simple Database**:
+   - Created a basic SQLite database within a Next.js-Tauri application.
+   - UseEffect required for client side rendering
+
+6. **Handling SSR in Next.js with Tauri**:
+   - Addressed challenges related to Server-Side Rendering (SSR) in Next.js when using Tauri. 
+   - Recommended using dynamic imports (`next/dynamic`) with `{ ssr: false }` to ensure client-side execution of database interactions in a parent SSR component.
+
+7. **Idea for Custom Application Header Bar for Tauri App**:
+   - Guided on creating a custom application header bar in Tauri, including design tips and window control using Tauri's API.
+   - Not implemented
+
+8. **Troubleshooting Database Errors**:
+   - Resolved the query`"invalid args 'db' for command 'execute'"` error by discussing the correct use of the database identifier in Tauri SQL commands.
+   - Addressed the `"UNIQUE constraint failed"` error by modifying the INSERT operation to handle unique ID values correctly.
+   - Tackled the `"TypeError: db.query is not a function"` issue, suggesting the use of the appropriate method for executing SELECT queries in Tauri which is execute
+
+9.  **Accessing SQLite Database with GUI Tools**:
+   - Chose DB Browser for SQLite for GUI development of SQLite DB
+   - Discovered local location in ~/Library/Application Support/com.tauri.dev/test.db
