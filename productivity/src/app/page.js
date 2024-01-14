@@ -7,7 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import dynamic from 'next/dynamic';
 
-const DatabaseTest = dynamic(() => import('@/components/init/db.client'), { ssr: false });
+const InitGroup = dynamic(() => import('@/init/initgroup.client'), { ssr: false });
 
 // Import the background image
 
@@ -15,7 +15,7 @@ export default function Home() {
 
   return (
     <>
-      <DatabaseTest/>
+      <InitGroup/>
       <main className="flex flex-col h-screen" style={{
         backgroundImage: `url('/background.jpeg')`,
         backgroundSize: 'cover',

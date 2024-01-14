@@ -1,3 +1,5 @@
+'use client'
+
 import { appWindow } from '@tauri-apps/api/window';
 import { useEffect } from 'react';
 
