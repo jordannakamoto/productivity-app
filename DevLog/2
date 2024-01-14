@@ -1,0 +1,5 @@
+1. ** Generated Icons **
+   - done with tauri's icon command
+2. ** Created DB Schema SQL Files **
+   - need to compile into jsx commands
+3. ** Created pattern for init scripts to load as React Components or other exported functions all from initgroup **

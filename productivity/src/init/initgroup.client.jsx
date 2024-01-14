@@ -1,7 +1,7 @@
 import React, { Suspense, lazy } from 'react';
 
 // Lazy load the components
-const DatabaseTest = lazy(() => import('./db.client'));
+const DatabaseSetup = lazy(() => import('./db.client'));
 const WindowTitle = lazy(() => import('./windowtitle.client'));
 
 function InitGroup() {
@@ -9,7 +9,7 @@ function InitGroup() {
         // Wrap lazy components with Suspense and provide a fallback UI
         <Suspense fallback={<div>Loading...</div>}>
             <>
-                <DatabaseTest/>
+                <DatabaseSetup/>
                 <WindowTitle/>
             </>
         </Suspense>

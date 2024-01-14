@@ -12,6 +12,7 @@ CREATE TABLE IF NOT EXISTS assignments (
   CREATE TABLE IF NOT EXISTS assignment_links (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     assignment_id INTEGER NOT NULL,
+    order_index INTEGER,
     link_type TEXT,
     link_name TEXT,
     url TEXT,

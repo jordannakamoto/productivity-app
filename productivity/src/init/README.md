@@ -1,0 +1,1 @@
+probably want to refactor the functions out of react components and into descriptive functions instead of <title>.client.jsx
