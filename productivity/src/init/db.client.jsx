@@ -39,6 +39,7 @@ function DatabaseSetup() {
             location TEXT,
             textbook TEXT,
             grade TEXT
+            index INTEGER
           );`,
           `CREATE TABLE IF NOT EXISTS test_dates (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
