@@ -1,21 +1,38 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-const EditableText = ({ initialValue, onFieldUpdate, fieldName }) => {
+const EditableText = ({ initialValue, onFieldUpdate, fieldName, fontSize }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [value, setValue] = useState(initialValue);
   const textareaRef = useRef(null);
 
-  useEffect(() => {
-    if (isEditing && textareaRef.current) {
-      const padding = 4; // You may adjust this value as needed
+  const setHeight = () => {
+    const padding = 4; // You may adjust this value as needed
   
       textareaRef.current.style.height = '0'; // Reset height to auto to calculate the new height
       textareaRef.current.style.height = `${textareaRef.current.scrollHeight + padding}px`;
+  }
+  useEffect(() => {
+    setHeight();
+  }, []);
+  
+  useEffect(() => {
+    if (isEditing && textareaRef.current) {
+      setHeight();
     }
   }, [isEditing, value]);
 
-  const handleDoubleClick = () => {
-    setIsEditing(true);
+  const handleEditClick = (e) => {
+    if (e.metaKey) {
+      e.preventDefault();
+      setIsEditing(true);
+      e.target.readOnly = false;
+      setTimeout(() => {
+        e.target.focus();
+      }, 0);
+    } else {
+      // Toggle the readOnly attribute based on isEditing
+      e.target.readOnly = true;
+    }
   };
 
   const handleInputChange = (e) => {
@@ -39,22 +56,24 @@ const EditableText = ({ initialValue, onFieldUpdate, fieldName }) => {
     overflowY: 'hidden', // Hide vertical scrollbar
     outline: 'none', // Hide focus outline
     whiteSpace: 'pre-wrap', // Allow text to wrap
+    WebkitBoxSizing: 'border-box', /* Safari/Chrome, other WebKit */
+    MozBoxSizing: 'border-box',    /* Firefox, other Gecko */
+    boxSizing: 'border-box',   
+    display: 'flex',
+    fontSize: fontSize || 'inherit'
   };
 
-  return isEditing ? (
+  return (
     <textarea
       value={value}
       onChange={handleInputChange}
       onBlur={handleBlur}
-      autoFocus
+      onClick={handleEditClick}
       style={inputStyle}
       ref={textareaRef}
-      spellCheck="false" // Disable spellcheck
+      spellCheck="false"
+      autofocus
     />
-  ) : (
-    <div onDoubleClick={handleDoubleClick} style={inputStyle}>
-      {value}
-    </div>
   );
 };
 

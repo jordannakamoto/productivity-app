@@ -13,21 +13,22 @@ const AssignmentCard = ({ assignment, onUpdate }) => {
 
     return (
         <Card className="px-2 bg-white bg-opacity-25 dark:bg-gray-800 dark:bg-opacity-75 shadow-none border-0 rounded">
-            <CardHeader className="flex justify-between items-center">
+            <CardHeader>
                 <EditableText
                     initialValue={assignment.name}
                     onFieldUpdate={(field, newValue) => handleFieldUpdate(field, newValue)}
                     fieldName="name"
                 />
-                <span className="inline-block bg-gray-500 text-xs text-white py-1 px-2 rounded-full">
-                    {dueDate}
-                </span>
             </CardHeader>
+            <div className="inline-block bg-gray-500 text-xs text-white py-1 px-2 rounded-full ml-6">
+                {dueDate}
+            </div>
             <CardContent>
                 <EditableText
                     initialValue={assignment.description}
                     onFieldUpdate={(field, newValue) => handleFieldUpdate(field, newValue)}
                     fieldName="description"
+                    fontSize="13px"
                 />
             </CardContent>
         </Card>

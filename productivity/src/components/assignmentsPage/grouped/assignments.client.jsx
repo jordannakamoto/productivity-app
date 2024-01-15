@@ -36,7 +36,7 @@ const Assignments = () => {
   }
 
   return (
-    <section className="flex-1 overflow-y-auto p-4 space-y-4">
+    <section className="flex-1 overflow-y-auto p-4">
       {assignments.map((assignment, index) => (
             <div key={index} className="p-2">
                 <AssignmentCard assignment={assignment} onUpdate={handleUpdate} />
