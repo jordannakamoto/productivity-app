@@ -6,6 +6,13 @@ import React, { useEffect, useState } from 'react';
 import AssignmentCard from '../single/assignment_card';
 
 const Assignments = () => {
+  const handleUpdate = async (assignmentId, fieldName, newValue) => {
+    // Update the assignment in the state
+    // Call API to update the database
+    await AssignmentAPI.updateAssignment(assignmentId, fieldName, newValue);
+    // Optionally, update local state to reflect changes
+};
+
   const [assignments, setAssignments] = useState([]);
 
   useEffect(() => {
@@ -31,10 +38,10 @@ const Assignments = () => {
   return (
     <section className="flex-1 overflow-y-auto p-4 space-y-4">
       {assignments.map((assignment, index) => (
-        <div key={index} className="p-2">
-            <AssignmentCard assignment={assignment} />
-        </div>
-      ))}
+            <div key={index} className="p-2">
+                <AssignmentCard assignment={assignment} onUpdate={handleUpdate} />
+            </div>
+        ))}
     </section>
   );
 };

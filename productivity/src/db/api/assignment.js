@@ -34,6 +34,13 @@ const AssignmentAPI = {
       [assignment.class_id, assignment.name, assignment.description, assignment.status, assignment.due_date, assignment.index]
     );
   },
+  
+  // update value by id
+  updateAssignment: async (assignmentId, fieldName, newValue) => {
+    const db = await getDb();
+    const query = `UPDATE assignments SET ${fieldName} = ? WHERE id = ?`;
+    await db.execute(query, [newValue, assignmentId]);
+  },
 
   // update by index
   delete: async (assignmentIndex) => {
