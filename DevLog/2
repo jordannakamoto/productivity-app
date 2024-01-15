@@ -1,3 +1,9 @@
+   
+#### Objective:
+Get Entity Relational map completed as Tables and scripted as SQLite startup commands
+
+#### Tasks Completed:
+
 1. ** Generated Icons **
    - done with tauri's icon command
 2. ** Created DB Schema SQL Files **

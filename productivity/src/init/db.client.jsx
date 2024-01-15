@@ -2,13 +2,13 @@
 
 import React, { useEffect } from 'react';
 
-import Database from "tauri-plugin-sql-api";
+import { getDb } from '@/db/dbInstance';
 
 function DatabaseSetup() {
   // Function to run a SQL query
   const createTables = async () => {
     try {
-        const db = await Database.load("sqlite:test.db");
+        const db = await getDb();
 
         const sqlCommands = [
           `CREATE TABLE IF NOT EXISTS assignments (

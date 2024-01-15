@@ -1,7 +1,7 @@
 ### Development Log Summary - Tauri Application with SQLite
 
 #### Objective:
-Integrate SQLite database functionality into a Tauri application, with a focus on setting up and managing the database within a Next.js-Tauri environment.
+Tauri application with NextJS frontend and SQLite storage.
 
 #### Tasks Completed:
 
