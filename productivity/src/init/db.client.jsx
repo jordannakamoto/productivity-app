@@ -23,7 +23,7 @@ function DatabaseSetup() {
           );`,
           `CREATE TABLE IF NOT EXISTS assignment_links (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
-            assignment_index INTEGER NOT NULL,
+            assignment_id INTEGER NOT NULL,
             index INTEGER,
             link_type TEXT,
             link_name TEXT,

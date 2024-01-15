@@ -1,0 +1,1 @@
+bugs in sql initialization code redo when we try to load the app from scratched db.

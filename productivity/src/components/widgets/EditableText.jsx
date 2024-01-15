@@ -73,7 +73,7 @@ const EditableText = ({ initialValue, onFieldUpdate, fieldName, fontSize }) => {
       style={inputStyle}
       ref={textareaRef}
       spellCheck="false"
-      autofocus
+      autoFocus
     />
   );
 };
