@@ -20,7 +20,7 @@ const AssignmentCard = ({ assignment, onUpdate }) => {
                     fieldName="name"
                 />
                 <span className="inline-block bg-gray-500 text-xs text-white py-1 px-2 rounded-full">
-                    Due: {dueDate}
+                    {dueDate}
                 </span>
             </CardHeader>
             <CardContent>

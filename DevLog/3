@@ -1,0 +1,20 @@
+   
+#### Objective:
+Complete the API and test rendering Assignment list
+
+#### Tasks Completed:
+
+1. ** Finished API **
+   - db/api/assignment
+   - Issue came up with the database connection instance being returned as a promise because of a top level await function. Had to move the db connection into each of the api methods instead of a top-level call - I think this may be the only way to handle this.
+2. ** Created and Implemented UI for @/components/assignemntsPage/grouped/assignments.client.jsx **
+   - Loads all assignments records from db
+   - Creates React UI component to display assignment
+3. ** Created Editable Text area **
+    - Provides functionality of being able to double click on an HTML div to convert it to a textarea for editing and updating the database record for the corrresponding assignment field
+   -  ISSUE: textarea has some treatment by the browser or some auto assigned css (although I couldn't locate any discrepancy in the css) whereby the height of the textarea appears to grow despite having the same css style as the div that precedes its place.
+
+#### TODO
+1. **Create keyboard shortcut CMD + N to create a new assignment**
+2. **Create AI API for parsing interactions**
+3. **Connect WebVoice API to process voice input**
