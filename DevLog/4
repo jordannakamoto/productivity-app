@@ -1,0 +1,16 @@
+   
+#### Objective:
+Drag and Drop + New Assignment Creation
+
+#### Tasks Completed:
+
+1. ** Drag and drop Reorder **
+   - Drag and drop with react beautiful dnd and persist to database.
+   - Disabled React Strict Mode in nextjs config
+
+
+#### TODO
+1. **Create keyboard shortcut CMD + N to create a new assignment**
+2. **Create AI API for parsing interactions**
+3. **Connect WebVoice API to process voice input**
+
