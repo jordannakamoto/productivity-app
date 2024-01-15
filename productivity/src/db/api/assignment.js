@@ -3,11 +3,10 @@
 
 import { getDb } from '@/db/dbInstance';
 
-const db = await getDb();
-
 // Create (Insert)
 const AssignmentAPI = {
   create: async (assignment) => {
+    const db = await getDb();
     await db.execute(
       "INSERT INTO assignments (class_id, index, name, description, status, due_date) VALUES (?, ?, ?, ?, ?, ?)",
       [assignment.class_id, assignment.index, assignment.name, assignment.description, assignment.status, assignment.due_date]
@@ -15,18 +14,21 @@ const AssignmentAPI = {
   },
 
   read: async (assignmentIndex) => {
-    return await db.query(
+    const db = await getDb();
+    return await db.select(
       "SELECT * FROM assignments WHERE index = ?",
       [assignmentIndex]
     );
   },
 
   readAll: async () => {
-    return await db.query("SELECT * FROM assignments");
+    const db = await getDb();
+    return await db.select("SELECT * FROM assignments");
   },
 
   // update by index
   update: async (assignment) => {
+    const db = await getDb();
     await db.execute(
       "UPDATE assignments SET class_id = ?, name = ?, description = ?, status = ?, due_date = ? WHERE index = ?",
       [assignment.class_id, assignment.name, assignment.description, assignment.status, assignment.due_date, assignment.index]
@@ -35,6 +37,7 @@ const AssignmentAPI = {
 
   // update by index
   delete: async (assignmentIndex) => {
+    const db = await getDb();
     await db.execute(
       "DELETE FROM assignments WHERE index = ?",
       [assignmentIndex]
@@ -46,6 +49,7 @@ const AssignmentAPI = {
 // Accessed by assignment index and link index
 const AssignmentLinkAPI = {
   create: async (link) => {
+    const db = await getDb();
     await db.execute(
       "INSERT INTO assignment_links (assignment_index, index, link_type, link_name, url) VALUES (?, ?, ?, ?, ?)",
       [link.assignment_id, link.index, link.link_type, link.link_name, link.url]
@@ -54,17 +58,20 @@ const AssignmentLinkAPI = {
 
   // Read a link based on assignment index and link index
   read: async (assignmentIndex, linkIndex) => {
-    return await db.query(
+    const db = await getDb();
+    return await db.execute(
       "SELECT * FROM assignment_links WHERE assignment_index = ? AND index = ?",
       [assignmentIndex, linkIndex]
     );
   },
 
   readAll: async () => {
-    return await db.query("SELECT * FROM assignment_links");
+    const db = await getDb();
+    return await db.execute("SELECT * FROM assignment_links");
   },
 
   update: async (link) => {
+    const db = await getDb();
     await db.execute(
       "UPDATE assignment_links SET assignment_index = ?, link_type = ?, link_name = ?, url = ? WHERE index = ?",
       [link.assignment_index, link.link_type, link.link_name, link.url, link.index]
@@ -73,6 +80,7 @@ const AssignmentLinkAPI = {
 
   // Delete a link based on assignment index and link index
   delete: async (assignmentIndex, linkIndex) => {
+    const db = await getDb();
     await db.execute(
       "DELETE FROM assignment_links WHERE assignment_index = ? AND index = ?",
       [assignmentIndex, linkIndex]

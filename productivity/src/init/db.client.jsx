@@ -14,7 +14,7 @@ function DatabaseSetup() {
           `CREATE TABLE IF NOT EXISTS assignments (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             class_id INTEGER,
-            order_index INTEGER,
+            index INTEGER,
             name TEXT,
             description TEXT,
             status TEXT,
@@ -23,8 +23,8 @@ function DatabaseSetup() {
           );`,
           `CREATE TABLE IF NOT EXISTS assignment_links (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
-            assignment_id INTEGER NOT NULL,
-            order_index INTEGER,
+            assignment_index INTEGER NOT NULL,
+            index INTEGER,
             link_type TEXT,
             link_name TEXT,
             url TEXT,
@@ -38,7 +38,7 @@ function DatabaseSetup() {
             office_hours TEXT,
             location TEXT,
             textbook TEXT,
-            grade TEXT
+            grade TEXT,
             index INTEGER
           );`,
           `CREATE TABLE IF NOT EXISTS test_dates (
