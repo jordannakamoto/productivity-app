@@ -26,12 +26,13 @@ const EditableText = ({ initialValue, onFieldUpdate, fieldName, fontSize }) => {
       e.preventDefault();
       setIsEditing(true);
       e.target.readOnly = false;
-      setTimeout(() => {
-        e.target.focus();
-      }, 0);
+      e.target.focus();
     } else {
       // Toggle the readOnly attribute based on isEditing
-      e.target.readOnly = true;
+      if(!isEditing){
+        e.preventDefault();
+        e.target.readOnly = true;
+      }
     }
   };
 

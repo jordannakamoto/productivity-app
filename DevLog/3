@@ -14,7 +14,8 @@ Complete the API and test rendering Assignment list
     - Provides functionality of being able to double click on an HTML div to convert it to a textarea for editing and updating the database record for the corrresponding assignment field
    -  ISSUE: textarea has some treatment by the browser or some auto assigned css (although I couldn't locate any discrepancy in the css) whereby the height of the textarea appears to grow despite having the same css style as the div that precedes its place. FIXED by 'display: flex'
 4. ** CMD + Click enables Edit mode **
-   - ReadOnly property of textarea gets toggled if cmd is clicked. This happens slowly so the caret appears for one frame, maybe we can do a work around or something by toggling its visibility someow or changing the loop order.
+   - Buggy behavior with current implementation
+   - Solution: Revert card element to div but have a moused over card switch to editable textareas on cmd key held.
 
 #### TODO
 1. **Create keyboard shortcut CMD + N to create a new assignment**
