@@ -9,9 +9,16 @@ Drag and Drop + New Assignment Creation
    - Disabled React Strict Mode in nextjs config
 
 2. ** Create New Assignment **
+   - Functionality implemented
+   - Needed to return the ID from the SQLite Create API call
+   - Index computed from assignments.length
+  
+#### BUGS
+Some issues with clicking off of the editable text area
 
 #### TODO
-1. **Create keyboard shortcut CMD + N to create a new assignment**
+1. **Implement Complete Assignment Interaction**
+   - Implement lottie-react to play animation
 2. **Create AI API for parsing interactions**
 3. **Connect WebVoice API to process voice input**
 
