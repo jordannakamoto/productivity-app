@@ -8,6 +8,7 @@ Drag and Drop + New Assignment Creation
    - Drag and drop with react beautiful dnd and persist to database.
    - Disabled React Strict Mode in nextjs config
 
+2. ** Create New Assignment **
 
 #### TODO
 1. **Create keyboard shortcut CMD + N to create a new assignment**
