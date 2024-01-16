@@ -47,6 +47,14 @@ const EditableText = ({ initialValue, onFieldUpdate, fieldName, fontSize }) => {
     setIsEditing(false);
   };
 
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      // Enter without Shift key pressed, blur the input
+      e.preventDefault();
+      textareaRef.current.blur();
+    }
+  };
+
   const inputStyle = {
     backgroundColor: isEditing ? 'rgba(255, 255, 255, 0.3)' : 'transparent',
     border: isEditing ? '2px solid white' : '2px solid transparent', // Outer border
@@ -70,6 +78,7 @@ const EditableText = ({ initialValue, onFieldUpdate, fieldName, fontSize }) => {
       onChange={handleInputChange}
       onBlur={handleBlur}
       onClick={handleEditClick}
+      onKeyDown={handleKeyDown}
       style={inputStyle}
       ref={textareaRef}
       spellCheck="false"

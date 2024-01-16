@@ -6,7 +6,8 @@ import { AssignmentAPI, AssignmentLinkAPI } from '@/db/api/assignment';
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
 import React, { useEffect, useState } from 'react';
 
-import AssignmentCard from '../single/assignment_card';
+import AssignmentCard from './assignment_card';
+import Commands from './commands'
 
 const Assignments = () => {
   const handleDragEnd = (result) => {
@@ -65,38 +66,41 @@ const Assignments = () => {
   }
 
   return (
-    <DragDropContext onDragEnd={handleDragEnd}>
-      <section id="assignments" className="flex-1 overflow-y-auto p-4">
-        <Droppable droppableId="assignmentList">
-          {(provided) => (
-            <div
-              {...provided.droppableProps}
-              ref={provided.innerRef}
-            >
-              {assignments.map((assignment, index) => (
-                <Draggable
-                  key={assignment.id} // Use a unique identifier for each assignment
-                  draggableId={assignment.id.toString()} // Use a unique identifier for each assignment
-                  index={index}
-                >
-                  {(provided) => (
-                    <div
-                      ref={provided.innerRef}
-                      {...provided.draggableProps}
-                      {...provided.dragHandleProps}
-                      style={{ marginTop: '10px', ...provided.draggableProps.style }} // Adding a top margin
-                    >
-                      <AssignmentCard assignment={assignment} onUpdate={handleUpdate} />
-                    </div>
-                  )}
-                </Draggable>
-              ))}
-              {provided.placeholder}
-            </div>
-          )}
-        </Droppable>
-      </section>
-    </DragDropContext>
+    <>
+    <Commands setAssignments={setAssignments} assignments={assignments} />
+      <DragDropContext onDragEnd={handleDragEnd}>
+        <section id="assignments" className="flex-1 overflow-y-auto p-4">
+          <Droppable droppableId="assignmentList">
+            {(provided) => (
+              <div
+                {...provided.droppableProps}
+                ref={provided.innerRef}
+              >
+                {assignments.map((assignment, index) => (
+                  <Draggable
+                    key={assignment.id} // Use a unique identifier for each assignment
+                    draggableId={assignment.id.toString()} // Use a unique identifier for each assignment
+                    index={index}
+                  >
+                    {(provided) => (
+                      <div
+                        ref={provided.innerRef}
+                        {...provided.draggableProps}
+                        {...provided.dragHandleProps}
+                        style={{ marginTop: '10px', ...provided.draggableProps.style }} // Adding a top margin
+                      >
+                        <AssignmentCard assignment={assignment} onUpdate={handleUpdate} />
+                      </div>
+                    )}
+                  </Draggable>
+                ))}
+                {provided.placeholder}
+              </div>
+            )}
+          </Droppable>
+        </section>
+      </DragDropContext>
+    </>
   );
 };
 

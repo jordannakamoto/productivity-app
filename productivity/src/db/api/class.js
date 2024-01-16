@@ -4,7 +4,7 @@ const ClassAPI = {
     create: async (classData) => {
         const db = await getDb();
         await db.execute(
-        "INSERT INTO class (name, time, teacher, office_hours, location, textbook, grade, index) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+        'INSERT INTO class (name, time, teacher, office_hours, location, textbook, grade, "index") VALUES (?, ?, ?, ?, ?, ?, ?, ?)"',
         [classData.name, classData.time, classData.teacher, classData.office_hours, classData.location, classData.textbook, classData.grade, classData.index]
         );
     },

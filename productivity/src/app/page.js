@@ -6,7 +6,7 @@
 import dynamic from 'next/dynamic';
 
 const InitGroup = dynamic(() => import('@/init/initgroup.client'), { ssr: false });
-const Assignments = dynamic(() => import('@/components/assignmentsPage/grouped/assignments.client'), { ssr: false });
+const Assignments = dynamic(() => import('@/components/assignmentsPage/assignments.client'), { ssr: false });
 
 // Import the background image
 

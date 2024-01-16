@@ -7,10 +7,11 @@ import { getDb } from '@/db/dbInstance';
 const AssignmentAPI = {
   create: async (assignment) => {
     const db = await getDb();
-    await db.execute(
-      "INSERT INTO assignments (class_id, index, name, description, status, due_date) VALUES (?, ?, ?, ?, ?, ?)",
+    const result = await db.execute(
+      'INSERT INTO assignments (class_id, "index", name, description, status, due_date) VALUES (?, ?, ?, ?, ?, ?)',
       [assignment.class_id, assignment.index, assignment.name, assignment.description, assignment.status, assignment.due_date]
     );
+    return result.lastInsertId; // return ID
   },
 
   read: async (assignmentIndex) => {
