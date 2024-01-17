@@ -1,0 +1,22 @@
+   
+#### Objective:
+Check Mark for completion + corresponding animation
+
+#### Tasks Completed:
+
+1. ** Completion Checkmark **
+   - Had to change fps in the Lottie json file
+   - Speed prop didn't seem to work
+
+2. ** Shifting Cards **
+   - Used a css transitionY to move the cards.
+   - Might be able to speed it up by making the css query selector more efficient\
+   - Didn't expose the deletion to commands.jsx not entirely sure yet how to refactor to support an Undo/Redo event system
+  
+#### TODO
+1. **Implement Editable Date**
+2. **Fix TextArea/Div Relationship**
+3. **Implement Assignment Links**
+4. **Create AI API for parsing interactions**
+5. **Connect WebVoice API to process voice input**
+
