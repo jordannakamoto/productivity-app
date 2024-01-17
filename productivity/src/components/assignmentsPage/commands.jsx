@@ -1,8 +1,33 @@
+import { LogicalSize, getCurrent } from '@tauri-apps/api/window';
 import React, { useEffect } from 'react';
 
 import { AssignmentAPI } from '@/db/api/assignment';
 
 const Commands = ({ setAssignments, assignments }) => {
+
+    // Testing smoothResize for switching to calendar view etc.
+    async function smoothResize(newWidth, newHeight, duration) {
+        const stepTime = 10;
+        const totalSteps = duration / stepTime;
+        const win = await getCurrent();
+        const currentSize = await win.innerSize();
+        const stepX = (newWidth - currentSize.width) / totalSteps;
+        const stepY = (newHeight - currentSize.height) / totalSteps;
+        
+        let currentStep = 0;
+        const resizeInterval = setInterval(async () => {
+            if (currentStep < totalSteps) {
+                await win.setSize(new LogicalSize(
+                    currentSize.width + stepX * currentStep,
+                    currentSize.height + stepY * currentStep
+                ));
+                currentStep++;
+            } else {
+                clearInterval(resizeInterval);
+            }
+        }, stepTime);
+    }
+
   const handleCreateNewAssignment = async () => {
 
     try {
@@ -50,6 +75,10 @@ const Commands = ({ setAssignments, assignments }) => {
       if ((event.metaKey || event.ctrlKey) && event.key === 'n') {
         console.log("test")
         handleCreateNewAssignment(); // Call the local function to create a new assignment
+      }
+      if ((event.metaKey || event.ctrlKey) && event.key === 't') {
+        console.log("test")
+        smoothResize(1000,1000,200); // Call the local function to create a new assignment
       }
     };
 
