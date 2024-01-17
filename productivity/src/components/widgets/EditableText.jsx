@@ -69,7 +69,8 @@ const EditableText = ({ initialValue, onFieldUpdate, fieldName, fontSize }) => {
     MozBoxSizing: 'border-box',    /* Firefox, other Gecko */
     boxSizing: 'border-box',   
     display: 'flex',
-    fontSize: fontSize || 'inherit'
+    fontSize: fontSize || 'inherit',
+    cursor: isEditing ? 'default': 'pointer',
   };
 
   return (

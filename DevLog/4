@@ -19,6 +19,7 @@ Some issues with clicking off of the editable text area
 #### TODO
 1. **Implement Complete Assignment Interaction**
    - Implement lottie-react to play animation
-2. **Create AI API for parsing interactions**
-3. **Connect WebVoice API to process voice input**
+2. **Implement Editable Date**
+3. **Create AI API for parsing interactions**
+4. **Connect WebVoice API to process voice input**
 

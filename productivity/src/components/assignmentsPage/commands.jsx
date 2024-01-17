@@ -23,7 +23,20 @@ const Commands = ({ setAssignments, assignments }) => {
         // Note: You may want to fetch and update the assignments list after creating the assignment
         newAssignmentData.id = lastInsertId;
         // Optionally, update the state or perform other actions after creating the assignment
-      setAssignments([...assignments, newAssignmentData]);
+        setAssignments([...assignments, newAssignmentData]);
+
+        setTimeout(() => {
+            const textCardForegrounds = document.querySelectorAll('.text-card-foreground');
+            if (textCardForegrounds.length > 0) {
+                const lastTextCardForeground = textCardForegrounds[textCardForegrounds.length - 1];
+                lastTextCardForeground.classList.add('fadeIn');
+                // Listen for the animationend event
+                lastTextCardForeground.addEventListener('animationend', () => {
+                // Remove the fadeIn class once the animation is complete
+                lastTextCardForeground.classList.remove('fadeIn');
+        });
+            }
+          }, 10); // Adjust the delay as needed
 
       } catch (error) {
         console.error('Error creating a new assignment:', error);
@@ -35,6 +48,7 @@ const Commands = ({ setAssignments, assignments }) => {
     const handleKeyPress = (event) => {
       // Check if the key combination is 'Cmd + N' on macOS or 'Ctrl + N' on Windows/Linux
       if ((event.metaKey || event.ctrlKey) && event.key === 'n') {
+        console.log("test")
         handleCreateNewAssignment(); // Call the local function to create a new assignment
       }
     };

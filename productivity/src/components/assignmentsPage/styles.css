@@ -1,0 +1,36 @@
+.card-transition {
+    transition: transform 0.2s ease-in;
+}
+
+
+/* Fade Transitions */
+.fadeOut {
+    animation: fadeOut .3s forwards;
+    opacity: .25;
+    color: transparent; 
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: .25;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+.fadeIn {
+    animation: fadeIn .3s forwards;
+    opacity: 0;
+    color: black;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+

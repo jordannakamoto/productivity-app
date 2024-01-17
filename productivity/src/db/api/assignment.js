@@ -22,10 +22,20 @@ const AssignmentAPI = {
     );
   },
 
-  readAll: async () => {
+  readAll: async (filters = {}) => {
     const db = await getDb();
-    return await db.select("SELECT * FROM assignments");
+    let query = "SELECT * FROM assignments";
+  
+    if (filters.statusFilter !== undefined) {
+      // Add a WHERE clause to filter by status where it's not equal to the provided status
+      query += ` WHERE status != '${filters.statusFilter}'`;
+    }
+    const result = await db.select(query)
+    console.log(result)
+    return result;
   },
+  
+  
 
   // update by index
   update: async (assignment) => {

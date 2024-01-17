@@ -10,6 +10,7 @@ import AssignmentCard from './assignment_card';
 import Commands from './commands'
 
 const Assignments = () => {
+
   const handleDragEnd = (result) => {
     if (!result.destination) {
       return;
@@ -43,12 +44,19 @@ const Assignments = () => {
     // Optionally, update local state to reflect changes
 };
 
+  const handleDeleteAssignment = (assignmentId) => {
+    setAssignments(assignments.filter(assignment => assignment.id !== assignmentId));
+  };
+
   const [assignments, setAssignments] = useState([]);
+
 
   useEffect(() => {
     const fetchAssignments = async () => {
       try {
-        let fetchedAssignments = await AssignmentAPI.readAll();
+        let fetchedAssignments = await AssignmentAPI.readAll({
+          statusFilter: 'completed',
+        });
         setAssignments(fetchedAssignments);
         fetchedAssignments = fetchedAssignments.sort((a, b) => a.index - b.index);
       } catch (error) {
@@ -62,7 +70,10 @@ const Assignments = () => {
 
   // Display a message if there are no assignments
   if (assignments.length === 0) {
-    return <div className="text-center py-4">No assignments available.</div>;
+    
+    return (<><Commands setAssignments={setAssignments} assignments={assignments} />
+               <div className="text-center py-4">No assignments available.</div>
+    </>)
   }
 
   return (
@@ -87,9 +98,9 @@ const Assignments = () => {
                         ref={provided.innerRef}
                         {...provided.draggableProps}
                         {...provided.dragHandleProps}
-                        style={{ marginTop: '10px', ...provided.draggableProps.style }} // Adding a top margin
+                        style={{ marginTop: '10px', ...provided.draggableProps.style}} // Adding a top margin
                       >
-                        <AssignmentCard assignment={assignment} onUpdate={handleUpdate} />
+                        <AssignmentCard assignment={assignment} onUpdate={handleUpdate} onDelete={handleDeleteAssignment}/>
                       </div>
                     )}
                   </Draggable>

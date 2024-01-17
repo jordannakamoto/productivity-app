@@ -7,7 +7,7 @@
     "distDir": "../out"
   },
   "package": {
-    "productName": "productivity",
+    "productName": "jnaxapp",
     "version": "0.1.0"
   },
   "tauri": {
@@ -56,10 +56,10 @@
     "windows": [
       {
         "fullscreen": false,
-        "height": 600,
+        "height": 1600,
         "resizable": true,
         "title": "productivity",
-        "width": 800
+        "width": 450
       }
     ]
   }
