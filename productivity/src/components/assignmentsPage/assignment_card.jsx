@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import React, { useRef, useState } from 'react';
 
 import CalculateDueDate from "@/calculations/CalculateDueDate";
+import EditableDateTime from '@/components/widgets/EditableDateTime';
 import EditableText from '@/components/widgets/EditableText';
 import Lottie from 'lottie-react';
 import animationData from './anim_checkmark.json';
@@ -169,6 +170,7 @@ const AssignmentCard = ({ assignment, onUpdate, onDelete }) => {
                     fieldName="name"
                 />
             </CardHeader>
+            <EditableDateTime/>
             <div className="inline-block bg-gray-400 text-xs text-white py-1 px-2 rounded-full ml-6">
                 {dueDate}
             </div>
