@@ -1,0 +1,21 @@
+   
+#### Objective:
+Datetime Picker and Editable Date Fields
+
+#### Tasks Completed:
+
+1. ** Getting Familiar with the Problem **
+   - Started to handle the parser for Date formats
+   - Decorated the input fields a bit
+   - Found a timepicker library but haven't implemented it yet
+  TODO: Find a calendar icon, find a suitable time icon as well
+
+  
+#### TODO
+1. **Implement Editable Date**
+2. **Fix TextArea/Div Relationship**
+3. **Implement Assignment Links**
+4. **Implement Alarms/Notifications**
+5. **Create AI API for parsing interactions**
+6. **Connect WebVoice API to process voice input**
+
