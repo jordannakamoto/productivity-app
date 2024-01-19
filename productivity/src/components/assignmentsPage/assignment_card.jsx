@@ -14,8 +14,7 @@ const AssignmentCard = ({ assignment, onUpdate, onDelete }) => {
     const cardRef = useRef(null);
     const lottieRef = useRef(null);
     const [animationStyle, setAnimationStyle] = useState({});
-    const [isAnimating, setIsAnimating] = useState(false)
-    const [holdTimer, setHoldTimer] = useState(null);
+    const [isAnimating, setIsAnimating] = useState(false);
     const [isFadingOut, setIsFadingOut] = useState(false);
     
 
